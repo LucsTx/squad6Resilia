@@ -1,4 +1,4 @@
-from CorpoeMentePOO import *
+from Arquivos_Python.CorpoeMentePOO import *
 
 corpo_e_mente = Pesquisa()
 
