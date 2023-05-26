@@ -86,17 +86,17 @@ Nas demais perguntas, responda apenas com números: '1' para 'Sim', '2' para 'N�
         respostas_candidato = {}
         respostas_candidato['idade'] = self.verifica_idade(input("Digite sua idade (ou '00' para sair): "))
         respostas_candidato['genero'] = self.verifica_genero(
-            'Qual gênero você se identifica? (1 = Feminino, 2 = Masculino, 3 = Outro, 4 = Prefiro não responder): ')
+            'Qual gênero você se identifica?\n(1) Feminino.\n(2) Masculino.\n(3) Outro.\n(4) Prefiro não responder.\nDigite o numero da opção: ')
         respostas_candidato['pergunta01'] = self.verifica_resposta(
-            'Você pratica alguma atividade física regularmente? (1 = Sim, 2 = Não, 3 = Não sei responder): ')
+            'Você pratica alguma atividade física regularmente?\n(1) Sim.\n(2) Não.\n(3) Não sei responder.\nDigite o numero da opção: ')
         respostas_candidato['pergunta02'] = self.verifica_resposta(
-            'Você tem facilidade para dormir e descansar adequadamente? (1 = Sim, 2 = Não, 3 = Não sei responder): ')
+            'Você tem facilidade para dormir e descansar adequadamente?\n(1) Sim.\n(2) Não.\n(3) Não sei responder.\nDigite o numero da opção: ')
         respostas_candidato['pergunta03'] = self.verifica_resposta(
-            'Você já teve problemas de saúde mental, como ansiedade ou depressão? (1 = Sim, 2 = Não, 3 = Não sei responder): ')
+            'Você já teve problemas de saúde mental, como ansiedade ou depressão? \n(1) Sim.\n(2) Não.\n(3) Não sei responder.\nDigite o numero da opção: ')
         respostas_candidato['pergunta04'] = self.verifica_resposta(
-            'Você sente que possui um equilíbrio saudável entre trabalho/estudos e vida pessoal? (1 = Sim, 2 = Não, 3 = Não sei responder): ')
+            'Você sente que possui um equilíbrio saudável entre trabalho/estudos e vida pessoal? \n(1) Sim.\n(2) Não.\n(3) Não sei responder.\nDigite o numero da opção: ')
         respostas_candidato['pergunta05'] = self.verifica_resposta(
-            'Você já buscou ajuda profissional para lidar com questões relacionadas à sua saúde mental? (1 = Sim, 2 = Não, 3 = Não sei responder): ')
+            'Você já buscou ajuda profissional para lidar com questões relacionadas à sua saúde mental? \n(1) Sim.\n(2) Não.\n(3) Não sei responder.\nDigite o numero da opção: ')
         respostas_candidato['data_hora'] = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
         
         self.respostas.append(respostas_candidato)
