@@ -1,51 +1,46 @@
-import csv
-import datetime
+import csv # Importando cvs para o funcionamento do banco de dados
+import datetime # Importando datetime para a captação da data e hora da resposta
 
-class Pesquisa:
+class Pesquisa: #Criação da Classe Pesquisa
+    
     def __init__(self):
-        self.respostas = []  # Lista de respostas de candidatos
+        
+        self.idade = ''
+     
+        self.genero = ''
     
-    @staticmethod
-    def linha():
-        print('-'*160)
-    
-    @staticmethod
-    def linha2():
-        print('='*160)
-    
-    @staticmethod
-    def verifica_idade(idade):
-        while True:
-            if idade == '00':
-                idade = Pesquisa.verifica_saida(idade)
+        self.respostas = []  # Lista para posteriormente arquivas as respostas dos candidatos
+    #------------------------------------------------------------------------------------------------------------------------------------#
+    def verifica_idade(self, idade):                                        # Módulo para a verificação da idade inserida, 
+        while True:                                                         
+            if idade == '00':                                          # Se for '00'
+                idade = self.verifica_saida(idade)            # chama a função 'verifica_saida'
                 if idade == '00':
                     break
             else:
                 try:
-                    idade = int(idade)
-                    return idade
+                    idade = int(idade)                            # Se puder ser convertida em um numero inteiro
+                    return idade                                       # Retorna a idade inserida
                 except ValueError:
-                    print('Idade inválida. Por favor, digite um valor válido.')
-                    idade = input("Digite sua idade novamente: ")
-    
-    @staticmethod        
-    def verifica_saida(idade):
-        if idade == '00':
+                    print('Idade inválida. Por favor, digite um valor válido.')   # Caso contrario, retorna uma mensagem de erro
+                    idade = input("Digite sua idade novamente: ")            # E solicita uma nova inserção
+    #------------------------------------------------------------------------------------------------------------------------------------#                
+    def verifica_saida(self, idade):                                         # Módulo para verificar a real intenção de saida do programa
+        if idade == '00':                                              # Segurança em caso de saída e encerramento acidental
             while True:
                 saida = input('Deseja sair da Pesquisa "Saúde Física e Mental"? (sim/nao): ')
                 if saida == 'sim':
-                    print('\nFinalizando Pesquisa...\n')
+                    print('\nFinalizando Pesquisa...\n')                    
                     exit()
                 elif saida == 'nao':
                     idade = input("Digite sua idade novamente: ")
-                    return Pesquisa.verifica_idade(idade)
+                    return self.verifica_idade(idade)
                 else:
                     print("Opção Inválida. Digite 'sim' para Sair ou 'nao' para retornar à Pesquisa.")
         return idade
-
-    @staticmethod
-    def verifica_genero(pergunta):
-        significados = {
+    #------------------------------------------------------------------------------------------------------------------------------------#
+    def verifica_genero(self,pergunta): # Módulo para verificação de inserção valida dentro das opçoes 
+        significados = {                # e conversão do numero digitado na resposta equivalente na pergunta 'genero'
             '1': 'Feminino',
             '2': 'Masculino',
             '3': 'Outro', 
@@ -57,10 +52,15 @@ class Pesquisa:
                 return significados[resposta]
             else:
                 print("Resposta inválida. Por favor, digite apenas 1, 2, 3 ou 4.")
+    #------------------------------------------------------------------------------------------------------------------------------------#
+    def obter_idade(self):
+        self.idade = self.verifica_idade(input("Digite sua idade (ou '00' para sair): "))
     
-    @staticmethod        
-    def verifica_resposta(pergunta):
-        significados = {
+    def obter_genero(self):
+        self.genero= self.verifica_genero('\nQual gênero você se identifica?\n(1) Feminino.\n(2) Masculino.\n(3) Outro.\n(4) Prefiro não responder.\nDigite o numero da opção: ')
+    #------------------------------------------------------------------------------------------------------------------------------------#
+    def verifica_resposta(self,pergunta): # Módulo para verificação de inserção valida dentro das opçoes 
+        significados = {                  # e conversão do numero digitado na resposta equivalente nas demais perguntas
             '1': 'Sim',
             '2': 'Não',
             '3': 'Não sei responder'
@@ -70,47 +70,43 @@ class Pesquisa:
             if resposta in significados:
                 return significados[resposta]
             else:
-                print("Resposta inválida. Por favor, digite apenas 1, 2 ou 3.")
-
-    def saudacao(self):
-        print('\nBem-vindo(a) à nossa Pesquisa "Saúde Física e Mental"!\n')
-
-    def instrucoes(self):
-        print('''Para preencher a pesquisa, preste atenção!
-Digite a idade (em anos inteiros) como resposta para a primeira pergunta.
-- Para finalizar a pesquisa, digite 00 na Idade.
-Digite o gênero como resposta para a segunda pergunta: '1' para 'Feminino', '2' para 'Masculino', '3' para 'Outro' ou '4' para 'Prefiro não responder'.
-Nas demais perguntas, responda apenas com números: '1' para 'Sim', '2' para 'Não' ou '3' para 'Não sei responder'.''')
-
+                print("Resposta inválida. Por favor, digite apenas 1, 2 ou 3.")      
+    #------------------------------------------------------------------------------------------------------------------------------------#
     def questionario(self):
-        respostas_candidato = {}
-        respostas_candidato['idade'] = self.verifica_idade(input("Digite sua idade (ou '00' para sair): "))
-        respostas_candidato['genero'] = self.verifica_genero(
-            'Qual gênero você se identifica?\n(1) Feminino.\n(2) Masculino.\n(3) Outro.\n(4) Prefiro não responder.\nDigite o numero da opção: ')
+        respostas_candidato = {} # Criação onde cada candidato representa um dicionário com chave:valor.
+        
+        respostas_candidato['idade'] = self.idade
+        
+        respostas_candidato['genero'] = self.genero
+
         respostas_candidato['pergunta01'] = self.verifica_resposta(
-            'Você pratica alguma atividade física regularmente?\n(1) Sim.\n(2) Não.\n(3) Não sei responder.\nDigite o numero da opção: ')
+            '\nVocê pratica alguma atividade física regularmente?\n(1) Sim.\n(2) Não.\n(3) Não sei responder.\nDigite o numero da opção: ')
+        
         respostas_candidato['pergunta02'] = self.verifica_resposta(
-            'Você tem facilidade para dormir e descansar adequadamente?\n(1) Sim.\n(2) Não.\n(3) Não sei responder.\nDigite o numero da opção: ')
+            '\nVocê tem facilidade para dormir e descansar adequadamente?\n(1) Sim.\n(2) Não.\n(3) Não sei responder.\nDigite o numero da opção: ')
+        
         respostas_candidato['pergunta03'] = self.verifica_resposta(
-            'Você já teve problemas de saúde mental, como ansiedade ou depressão? \n(1) Sim.\n(2) Não.\n(3) Não sei responder.\nDigite o numero da opção: ')
+            '\nVocê já teve problemas de saúde mental, como ansiedade ou depressão? \n(1) Sim.\n(2) Não.\n(3) Não sei responder.\nDigite o numero da opção: ')
+        
         respostas_candidato['pergunta04'] = self.verifica_resposta(
-            'Você sente que possui um equilíbrio saudável entre trabalho/estudos e vida pessoal? \n(1) Sim.\n(2) Não.\n(3) Não sei responder.\nDigite o numero da opção: ')
+            '\nVocê sente que possui um equilíbrio saudável entre trabalho/estudos e vida pessoal? \n(1) Sim.\n(2) Não.\n(3) Não sei responder.\nDigite o numero da opção: ')
+        
         respostas_candidato['pergunta05'] = self.verifica_resposta(
-            'Você já buscou ajuda profissional para lidar com questões relacionadas à sua saúde mental? \n(1) Sim.\n(2) Não.\n(3) Não sei responder.\nDigite o numero da opção: ')
+            '\nVocê já buscou ajuda profissional para lidar com questões relacionadas à sua saúde mental? \n(1) Sim.\n(2) Não.\n(3) Não sei responder.\nDigite o numero da opção: ')
+        
         respostas_candidato['data_hora'] = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
         
-        self.respostas.append(respostas_candidato)
-
-    def exibir_resposta_armazenada(self):
+        self.respostas.append(respostas_candidato) #Armazena as respostas obtidas na lista "respostas"
+    #------------------------------------------------------------------------------------------------------------------------------------#
+    def exibir_resposta_armazenada(self): #Quando chamado, o módulo exibe o ultimo candidato cadastrado
         ultimo_candidato = self.respostas[-1]
-        print(f"Respostas armazenadas: Idade = {ultimo_candidato['idade']}, Gênero = {ultimo_candidato['genero']}, Pergunta 1 = {ultimo_candidato['pergunta01']}, Pergunta 2 = {ultimo_candidato['pergunta02']}, Pergunta 3 = {ultimo_candidato['pergunta03']}, Pergunta 4 = {ultimo_candidato['pergunta04']}, Pergunta 5 = {ultimo_candidato['pergunta05']}, Data - Hora = {ultimo_candidato['data_hora']}")
-    
-    def criar_arquivo_csv(self):
+        print(f"\nRespostas armazenadas: Idade = {self.idade}, Gênero = {self.genero}, Pergunta 1 = {ultimo_candidato['pergunta01']}, Pergunta 2 = {ultimo_candidato['pergunta02']}, Pergunta 3 = {ultimo_candidato['pergunta03']}, Pergunta 4 = {ultimo_candidato['pergunta04']}, Pergunta 5 = {ultimo_candidato['pergunta05']}, Data - Hora = {ultimo_candidato['data_hora']}")
+    #------------------------------------------------------------------------------------------------------------------------------------#
+    def criar_arquivo_csv(self): # Criação do arquivo Csv contendo as respostas armazenadas
         with open('Pesquisa_CorpoeMente.csv', 'w', newline='', encoding='utf-8') as arquivo_csv:
             fieldnames = list(self.respostas[0].keys())  # Obtendo as chaves do dicionário do primeiro candidato como nome dos campos
             writer = csv.DictWriter(arquivo_csv, fieldnames=fieldnames)
             writer.writeheader()
             writer.writerows(self.respostas)
-
-    def agradecimento(self):
-        print('Obrigado por participar da nossa pesquisa!')
+    #------------------------------------------------------------------------------------------------------------------------------------#
+    
