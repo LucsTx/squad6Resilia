@@ -100,7 +100,7 @@ class Pesquisa: #Criação da Classe Pesquisa
     #------------------------------------------------------------------------------------------------------------------------------------#
     def exibir_resposta_armazenada(self): #Quando chamado, o módulo exibe o ultimo candidato cadastrado
         ultimo_candidato = self.respostas[-1]
-        print(f"\nRespostas armazenadas: Idade = {self.idade}, Gênero = {self.genero}, Pergunta 1 = {ultimo_candidato['pergunta01']}, Pergunta 2 = {ultimo_candidato['pergunta02']}, Pergunta 3 = {ultimo_candidato['pergunta03']}, Pergunta 4 = {ultimo_candidato['pergunta04']}, Pergunta 5 = {ultimo_candidato['pergunta05']}, Data - Hora = {ultimo_candidato['data_hora']}")
+        print(f"\nRespostas armazenadas: \nIdade = {self.idade} \nGênero = {self.genero} \nPergunta 1 = {ultimo_candidato['pergunta01']} \nPergunta 2 = {ultimo_candidato['pergunta02']} \nPergunta 3 = {ultimo_candidato['pergunta03']} \nPergunta 4 = {ultimo_candidato['pergunta04']} \nPergunta 5 = {ultimo_candidato['pergunta05']} \nData - Hora = {ultimo_candidato['data_hora']}")
     #------------------------------------------------------------------------------------------------------------------------------------#
     def criar_arquivo_csv(self): # Criação do arquivo Csv contendo as respostas armazenadas
         with open('Pesquisa_CorpoeMente.csv', 'w', newline='', encoding='utf-8') as arquivo_csv:
