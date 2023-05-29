@@ -1,10 +1,6 @@
-# Pesquisa - Dados na mesa
----
-Trabalho em Squads - Módulo II - Programa VAMO AI 
-
 
 <p align="center">
-  <img src="C:\Users\josea\OneDrive\Documentos\GitHub\squad6Resilia\Logo.png">
+  <img src="https://github.com/LucsTx/squad6Resilia/blob/main/Logo.png?raw=true" alt="Logo Pesquisa.com">
 </p>
 
 # Pesquisa.com
@@ -58,4 +54,4 @@ Para utilizar o sistema, siga os seguintes passos:
 
 - Ao finalizar, um arquivo CSV chamado `Pesquisa_CorpoeMente.csv` será criado com as respostas coletadas.
 
-- Para visualizar utilize o Excel ou programa similar.
+- Para visualizar os dados gerados, utilize o Excel ou programa similar.
