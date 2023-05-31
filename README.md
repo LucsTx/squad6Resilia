@@ -22,6 +22,7 @@
     [Linkedin](https://www.linkedin.com/in/fernandocfs/)
 
 - Edineudo Sampaio (Pessoa Colaboradora 2)
+    [GitHub, Inc.](https://github.com/Edyneldu/)
 
 
 ## Evidência
