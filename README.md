@@ -14,6 +14,7 @@
     [Linkedin](https://www.linkedin.com/in/josean-leite-borges-bb5944265/)
 
 - Lucas Teixeira (Pessoa Gestora de Conhecimento)
+[Linkedin](https://www.linkedin.com/in/lucas-teixeira-50b4011a0/)
 
 - Luciana Otávio Nunes (Pessoa Gestora Gente e Engajamento) 
     [Linkedin](https://www.linkedin.com/in/luhonunes/)
