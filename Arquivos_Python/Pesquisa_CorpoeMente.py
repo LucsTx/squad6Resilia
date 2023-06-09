@@ -9,7 +9,7 @@ while True:
     linha()
 
     # Instruções
-    print('''Para preencher a pesquisa, preste atenção! 
+    print('''\nPara preencher a pesquisa, preste atenção! 
 Digite a idade (em anos inteiros) como resposta para a primeira pergunta.
 - Para finalizar a pesquisa, digite 00 na Idade.
 Digite o gênero como resposta para a segunda pergunta: '1' para 'Feminino', '2' para 'Masculino', '3' para 'Outro' ou '4' para 'Prefiro não responder'.

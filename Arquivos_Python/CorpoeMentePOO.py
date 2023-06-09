@@ -54,7 +54,7 @@ class Pesquisa: #Criação da Classe Pesquisa
                 print("Resposta inválida. Por favor, digite apenas 1, 2, 3 ou 4.")
     #------------------------------------------------------------------------------------------------------------------------------------#
     def obter_idade(self):
-        self.idade = self.verifica_idade(input("Digite sua idade (ou '00' para sair): "))
+        self.idade = self.verifica_idade(input("\nDigite sua idade (ou '00' para sair): "))
     
     def obter_genero(self):
         self.genero= self.verifica_genero('\nQual gênero você se identifica?\n(1) Feminino.\n(2) Masculino.\n(3) Outro.\n(4) Prefiro não responder.\nDigite o numero da opção: ')
@@ -70,7 +70,7 @@ class Pesquisa: #Criação da Classe Pesquisa
             if resposta in significados:
                 return significados[resposta]
             else:
-                print("Resposta inválida. Por favor, digite apenas 1, 2 ou 3.")      
+                print('Resposta inválida. Por favor, digite apenas 1, 2 ou 3.')      
     #------------------------------------------------------------------------------------------------------------------------------------#
     def questionario(self):
         respostas_candidato = {} # Criação onde cada candidato representa um dicionário com chave:valor.
